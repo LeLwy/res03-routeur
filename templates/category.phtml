@@ -1,0 +1,21 @@
+<main class="container py-5">
+    <?php var_dump($data); ?>  
+    <h2 class="mb-5">Les produits de la catégorie <?= $data['products']->getName() ?></h2>  
+    <section class="row">
+        <?php 
+        $products = $data['products']->getProducts();
+        foreach($products as $product){ ?>  
+        <article class="card col-3 mx-2 p-5">  
+            <header>  
+                <h3 class="card-title"><?= $product['name'] ?></h3>  
+            </header>  
+            <p class="card-text">  
+                <?= $product['description'] ?>  
+            </p>  
+            <footer>  
+                <a href="/res03-routeur/produits/<?= $product['slug'] ?>" class="btn btn-info"><?= $product['name'] ?></a>  
+            </footer>  
+        </article>
+        <?php } ?>  
+    </section>  
+</main>
